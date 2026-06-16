@@ -1,0 +1,15 @@
+# Render blueprint for the Fathom webhook receiver.
+# Render injects $PORT; the server binds to it (see fathom_webhook.main()).
+# Secrets are set in the Render dashboard (sync: false = not stored in this file / repo).
+services:
+  - type: web
+    name: fathom-webhook
+    runtime: python
+    plan: free
+    buildCommand: pip install -r requirements.txt
+    startCommand: python fathom_webhook.py
+    envVars:
+      - key: FATHOM_WEBHOOK_SECRET
+        sync: false
+      - key: FATHOM_API_KEY
+        sync: false

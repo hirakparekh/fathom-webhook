@@ -1,0 +1,7 @@
+# Never commit secrets or captured transcripts
+.env
+transcripts/
+
+# Python
+__pycache__/
+*.py[cod]
